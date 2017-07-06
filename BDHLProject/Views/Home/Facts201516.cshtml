@@ -1,0 +1,768 @@
+﻿
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+
+    <div class="row">
+        <div class="col-md-12" style="margin-left: 33%"> <h1>BDHL 2015/16 Season</h1></div>
+    </div>
+    <div class="container">
+        <h2>Final Regular Season Standings</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Owner</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Minnesota Golden Gophers</td>
+                    <td>Bill DeSalvio</td>
+                    <td>16</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Maine Black Bears</td>
+                    <td>Hayden Tucker</td>
+                    <td>15</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Vermont Catamounts</td>
+                    <td>Ryan DeSalvio</td>
+                    <td>14</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Alaska Nanooks</td>
+                    <td>Mitch Moore</td>
+                    <td>10</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Bowling Green Falcons</td>
+                    <td>John Lanzi</td>
+                    <td>10</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Yale Bulldogs</td>
+                    <td>Anthony Plotzke</td>
+                    <td>10</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Davenport Panthers</td>
+                    <td>Brad Lawson</td>
+                    <td>7</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Quinnipiac Bobcats</td>
+                    <td>Scott Drummond</td>
+                    <td>6</td>
+                    <td>16</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" id="NHLScoringLeaders" style="width: 500px; height: 400px; margin:0%;"></div>
+        <div class="col-md-6" id="BDHLScoringLeaders" style="width: 500px; height: 400px; margin-left:5%"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" id="NHLPPLeaders" style="width: 500px; height: 400px; margin:0%"></div>
+        <div class="col-md-6" id="NHLPMLeaders" style="width: 500px; height: 400px; margin-left:5%"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="BDHLAverageLeaders" style="width: 500px; height: 400px; margin-left:25%"></div>
+    </div>
+
+    <div class="container">
+        <h2>Season Records</h2>
+        <p>2015/16 Individual Season Records</p>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">Largest Win</div>
+                <div class="panel-body">Alaska Nanooks(W) vs. Quinnipiac Bobcats: 113.3 points </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Smallest Win</div>
+
+                <div class="panel-body">Vermont Catamounts(W) vs. Maine Black Bears: 0.1 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Points in a Day by a Player in a Week</div>
+
+                <div class="panel-body">Daniel Sedin(Alaska Nanooks): 38.8 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Points by a Team in a Day</div>
+
+                <div class="panel-body">Vermont Catamounts: 80.1 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Goals by a Team in a Week</div>
+
+                <div class="panel-body">Vermont Catamounts: 20 goals</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Assists by a Team in a Week</div>
+
+                <div class="panel-body">Maine Black Bears: 36 assists</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Pickups by a Team in a Season</div>
+
+                <div class="panel-body">Maine Black Bears: 185 pickups</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Trades by a Team in a Season</div>
+
+                <div class="panel-body">Maine Black Bears: 10 trades</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+<script>
+
+
+
+
+
+    $(function () {
+
+        Highcharts.chart('NHLScoringLeaders', {
+
+            chart: {
+
+                type: 'column'
+
+
+            },
+
+            title: {
+
+                text: 'NHL Top 10 In Scoring 2015/16'
+
+            },
+
+            subtitle: {
+
+                text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+            },
+
+            xAxis: {
+
+                type: 'category',
+
+                labels: {
+
+                    rotation: -45,
+
+                    style: {
+
+                        fontSize: '13px',
+
+                        fontFamily: 'Verdana, sans-serif'
+
+                    }
+
+                }
+
+            },
+
+            yAxis: {
+
+                min: 0,
+
+                title: {
+
+                    text: 'Points'
+
+                }
+
+            },
+
+            legend: {
+
+                enabled: false
+
+            },
+
+            tooltip: {
+
+                pointFormat: 'Points in 2015/16: <b>{point.y}</b>'
+
+            },
+
+            series: [{
+
+                name: 'Population',
+
+                data: [
+
+                    ['Patrick Kane', 106],
+
+                    ['Jamie Benn', 89],
+
+                    ['Sidney Crosby', 85],
+
+                    ['Joe Thornton', 82],
+
+                    ['Erik Karlsonn', 82],
+
+                    ['Johnny Gaudreau', 78],
+
+                    ['Joe Pavelski', 78],
+
+                    ['Blake Wheeler', 78],
+
+                    ['Artemi Panarin', 77],
+
+                    ['Evgeny Kusznetsov', 77]
+
+                ],
+
+                dataLabels: {
+
+                    enabled: true,
+
+                    rotation: -90,
+
+                    color: '#FFFFFF',
+
+                    align: 'right',
+
+                    format: '{point.y}', // one decimal
+
+                    y: 10, // 10 pixels down from the top
+
+                    style: {
+
+                        fontSize: '13px',
+
+                        fontFamily: 'Verdana, sans-serif'
+
+                    }
+
+                }
+
+            }]
+
+        });
+
+        Highcharts.chart('BDHLScoringLeaders', {
+
+            chart: {
+
+                type: 'column'
+
+            },
+
+            title: {
+
+                text: 'BDHL Top 10 In Scoring 2015/16'
+
+            },
+
+            subtitle: {
+
+                text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+            },
+
+            xAxis: {
+
+                type: 'category',
+
+                labels: {
+
+                    rotation: -45,
+
+                    style: {
+
+                        fontSize: '13px',
+
+                        fontFamily: 'Verdana, sans-serif'
+
+                    }
+
+                }
+
+            },
+
+            yAxis: {
+
+                min: 0,
+
+                title: {
+
+                    text: 'Fantasy Points'
+
+                }
+
+            },
+
+            legend: {
+
+                enabled: false
+
+            },
+
+            tooltip: {
+
+                pointFormat: 'Fantasy Points in 2015/16: <b>{point.y}</b>'
+
+            },
+
+            series: [{
+
+                name: 'Population',
+
+                data: [
+
+                    ['Patrick Kane', 405.1],
+
+                    ['Alex Ovechkin', 394.7],
+
+                    ['Jamie Benn', 389.8],
+
+                    ['Brent Burns', 371.2],
+
+                    ['Joe Pavelski', 347.3],
+
+                    ['Erik Karlsonn', 345.9],
+
+                    ['Sidney Crosby', 344.7],
+
+                    ['Wayne Simmonds', 324.5],
+
+                    ['Blake Wheeler', 322.1],
+
+                    ['Dustin Byfuglien', 321]
+
+                ],
+
+                dataLabels: {
+
+                    enabled: true,
+
+                    rotation: -90,
+
+                    color: '#FFFFFF',
+
+                    align: 'right',
+
+                    format: '{point.y}', // one decimal
+
+                    y: 10, // 10 pixels down from the top
+
+                    style: {
+
+                        fontSize: '13px',
+
+                        fontFamily: 'Verdana, sans-serif'
+
+                    }
+
+                }
+
+            }]
+
+        });
+
+    });
+
+    Highcharts.chart('NHLPPLeaders', {
+
+        chart: {
+
+            type: 'column'
+
+        },
+
+        title: {
+
+            text: 'NHL Top 10 In PP Points 2015/16'
+
+        },
+
+        subtitle: {
+
+            text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+        },
+
+        xAxis: {
+
+            type: 'category',
+
+            labels: {
+
+                rotation: -45,
+
+                style: {
+
+                    fontSize: '13px',
+
+                    fontFamily: 'Verdana, sans-serif'
+
+                }
+
+            }
+
+        },
+
+        yAxis: {
+
+            min: 0,
+
+            title: {
+
+                text: 'Points'
+
+            }
+
+        },
+
+        legend: {
+
+            enabled: false
+
+        },
+
+        tooltip: {
+
+            pointFormat: 'PP Points in 2015/16: <b>{point.y}</b>'
+
+        },
+
+        series: [{
+
+            name: 'Population',
+
+            data: [
+
+                ['Patrick Kane', 37],
+
+                ['Brent Burns', 30],
+
+                ['Nicklas Backstrom', 30],
+
+                ['Jamie Benn', 30],
+
+                ['Joe Thornton', 29],
+
+                ['Joe Pavelski', 28],
+
+                ['Evgeni Malkin', 27],
+
+                ['Kris Letang', 27],
+
+                ['Claude Giroux', 27],
+
+                ['Oliver Ekman-Larsson', 27]
+
+            ],
+
+            dataLabels: {
+
+                enabled: true,
+
+                rotation: -90,
+
+                color: '#FFFFFF',
+
+                align: 'right',
+
+                format: '{point.y}', // one decimal
+
+                y: 10, // 10 pixels down from the top
+
+                style: {
+
+                    fontSize: '13px',
+
+                    fontFamily: 'Verdana, sans-serif'
+
+                }
+
+            }
+
+        }]
+
+    });
+
+    Highcharts.chart('NHLPMLeaders', {
+
+        chart: {
+
+            type: 'column'
+
+        },
+
+        title: {
+
+            text: 'NHL Top 10 In +/- 2015/16'
+
+        },
+
+        subtitle: {
+
+            text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+        },
+
+        xAxis: {
+
+            type: 'category',
+
+            labels: {
+
+                rotation: -45,
+
+                style: {
+
+                    fontSize: '13px',
+
+                    fontFamily: 'Verdana, sans-serif'
+
+                }
+
+            }
+
+        },
+
+        yAxis: {
+
+            min: 0,
+
+            title: {
+
+                text: 'Points'
+
+            }
+
+        },
+
+        legend: {
+
+            enabled: false
+
+        },
+
+        tooltip: {
+
+            pointFormat: '+/- in 2015/16: <b>{point.y}</b>'
+
+        },
+
+        series: [{
+
+            name: 'Population',
+
+            data: [
+
+                ['Tyler Toffoli', 35],
+
+                ['Anze Kopitar', 34],
+
+                ['Brian Campbell', 31],
+
+                ['Chris Kunitz', 29],
+
+                ['Colton Parayko', 28],
+
+                ['Evgeny Kusznetsov', 27],
+
+                ['Olli Matta', 27],
+
+                ['James Neal', 27],
+
+                ['Ryan McDonagh', 26],
+
+                ['Milan Lucic', 26]
+
+            ],
+
+            dataLabels: {
+
+                enabled: true,
+
+                rotation: -90,
+
+                color: '#FFFFFF',
+
+                align: 'right',
+
+                format: '{point.y}', // one decimal
+
+                y: 10, // 10 pixels down from the top
+
+                style: {
+
+                    fontSize: '13px',
+
+                    fontFamily: 'Verdana, sans-serif'
+
+                }
+
+            }
+
+        }]
+
+    });
+
+    Highcharts.chart('BDHLAverageLeaders', {
+
+        chart: {
+
+            type: 'column'
+
+        },
+
+        title: {
+
+            text: 'BDHL Top 10 In Average 2015/16'
+
+        },
+
+        subtitle: {
+
+            text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+        },
+
+        xAxis: {
+
+            type: 'category',
+
+            labels: {
+
+                rotation: -45,
+
+                style: {
+
+                    fontSize: '13px',
+
+                    fontFamily: 'Verdana, sans-serif'
+
+                }
+
+            }
+
+        },
+
+        yAxis: {
+
+            min: 0,
+
+            title: {
+
+                text: 'Fantasy Points'
+
+            }
+
+        },
+
+        legend: {
+
+            enabled: false
+
+        },
+
+        tooltip: {
+
+            pointFormat: 'Fantasy Average in 2015/16: <b>{point.y}</b>'
+
+        },
+
+        series: [{
+
+            name: 'Population',
+
+            data: [
+
+                ['Alex Ovechkin', 5.0],
+
+                ['Patrick Kane', 4.9],
+
+                ['Jamie Benn', 4.8],
+
+                ['Brent Burns', 4.5],
+
+                ['Kris Letang', 4.4],
+
+                ['Evgeni Malkin', 4.4],
+
+                ['Sidney Crosby', 4.3],
+
+                ['Tyler Seguin', 4.2],
+
+                ['Joe Pavelski', 4.2],
+
+                ['Erik Karlsonn', 4.2]
+
+            ],
+
+            dataLabels: {
+
+                enabled: true,
+
+                rotation: -90,
+
+                color: '#FFFFFF',
+
+                align: 'right',
+
+                format: '{point.y}', // one decimal
+
+                y: 10, // 10 pixels down from the top
+
+                style: {
+
+                    fontSize: '13px',
+
+                    fontFamily: 'Verdana, sans-serif'
+
+                }
+
+            }
+
+        }]
+
+    });
+
+</script>

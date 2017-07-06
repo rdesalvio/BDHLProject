@@ -1,0 +1,821 @@
+﻿
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+    <div class="row">
+
+        <div class="col-md-12" style="margin-left: 33%"> <h1>BDHL 2012/13 Season</h1></div>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <h2>Final Regular Season Standings</h2>
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+
+                    <th>Team</th>
+
+                    <th>Owner</th>
+
+                    <th>Wins</th>
+
+                    <th>Losses</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>Vermont Catamounts</td>
+
+                    <td>Ryan DeSalvio</td>
+
+                    <td>7</td>
+
+                    <td>3</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Maine Black Bears</td>
+
+                    <td>Hayden Tucker</td>
+
+                    <td>6</td>
+
+                    <td>4</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Michigan Wolverines</td>
+
+                    <td>Joey Zappa</td>
+
+                    <td>5</td>
+
+                    <td>5</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Bowling Green Falcons</td>
+
+                    <td>John Lanzi</td>
+
+                    <td>2</td>
+
+                    <td>8</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-md-6" id="NHLScoringLeaders" style="width: 500px; height: 400px; margin:0%;"></div>
+
+        <div class="col-md-6" id="BDHLScoringLeaders" style="width: 500px; height: 400px; margin-left:5%"></div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-md-6" id="NHLPPLeaders" style="width: 500px; height: 400px; margin:0%"></div>
+
+        <div class="col-md-6" id="NHLPMLeaders" style="width: 500px; height: 400px; margin-left:5%"></div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-md-12" id="BDHLAverageLeaders" style="width: 500px; height: 400px; margin-left:25%"></div>
+
+    </div>
+
+
+
+
+    <div class="container">
+
+        <h2>Season Records</h2>
+
+        <p>2012/13 Individual Season Records</p>
+
+        <div class="panel-group">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Largest Win</div>
+
+                <div class="panel-body">Maine Black Bears(W) vs. Vermont Catamounts: 93.6 points </div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Smallest Win</div>
+
+                <div class="panel-body">Maine Black Bears(W) vs. Michigan Wolverines: 0.2 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Points in a Day by a Player in a Week</div>
+
+                <div class="panel-body">Patrick Marleau(Bowling Green): 55.6 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Points by a Team in a Day</div>
+
+                <div class="panel-body">Bowling Green Falcons: 88.5 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Goals by a Team in a Week</div>
+
+                <div class="panel-body">Vermont Catamounts: 35 goals</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Assists by a Team in a Week</div>
+
+                <div class="panel-body">Vermont Catamounts: 71 assists</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Pickups by a Team in a Season</div>
+
+                <div class="panel-body">Maine Black Bears: 98 pickups</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Trades by a Team in a Season</div>
+
+                <div class="panel-body">Maine Black Bears: 8 trades</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+
+<script>
+
+
+
+
+
+$(function () {
+
+Highcharts.chart('NHLScoringLeaders', {
+
+chart: {
+
+type: 'column'
+
+
+},
+
+title: {
+
+text: 'NHL Top 10 In Scoring 2012/13'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'Points in 2012/13: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Martin St. Louis', 60],
+
+['Steven Stamkos', 57],
+
+['Alex Ovechkin', 56],
+
+['Sidney Crosby', 56],
+
+['Patrick Kane', 55],
+
+['Eric Staal', 53],
+
+['Chris Kunitz', 52],
+
+['Phil Kessel', 52],
+
+['Taylor Hall', 50],
+
+['Mike Ribeiro', 49]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+Highcharts.chart('BDHLScoringLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'BDHL Top 10 In Scoring 2012/13'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Fantasy Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'Fantasy Points in 2012/13: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Alex Ovechkin', 269.2],
+
+['Steven Stamkos', 223.7],
+
+['Chris Kunitz', 217.0],
+
+['Eric Staal', 208.3],
+
+['Ryan Getzlaf', 207],
+
+['Martin St. Louis', 204.8],
+
+['John Tavares', 202.0],
+
+['Phil Kessel', 200.7],
+
+['Henrik Zetterberg', 197.0],
+
+['Evander Kane', 193.0]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+});
+
+Highcharts.chart('NHLPPLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'NHL Top 10 In PP Points 2012/13'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'PP Points in 2012/13: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Mike Ribeiro', 27],
+
+['Alex Ovechkin', 27],
+
+['P.K. Subban', 26],
+
+['Andrei Markov', 23],
+
+['Henrik Zetterberg', 23],
+
+['Joe Thornton', 21],
+
+['Phil Kessel', 21],
+
+['Claude Giroux', 21],
+
+['Martin St. Louis', 20],
+
+['Evgeni Malkin', 18]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+Highcharts.chart('NHLPMLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'NHL Top 10 In +/- 2012/13'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: '+/- in 2012/13: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Pascal Dupuis', 31],
+
+['Chris Kunitz', 30],
+
+['Jonathan Toews', 28],
+
+['Sidney Crosby', 26],
+
+['Derek Stepan', 25],
+
+['Patrice Bergeron', 24],
+
+['Brad Marchand', 23],
+
+['Tyler Seguin', 23],
+
+['Pavel Datsyuk', 21],
+
+['Marian Hossa', 20]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+Highcharts.chart('BDHLAverageLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'BDHL Top 10 In Average 2012/13'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Fantasy Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'Fantasy Average in 2012/13: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Alex Ovechkin', 5.6],
+
+['Sidney Crosby', 5.1],
+
+['Joffrey Lupul', 4.8],
+
+['Ryan Getzlaf', 4.7],
+
+['Steven Stamkos', 4.7],
+
+['Chris Kunitz', 4.5],
+
+['James Neal', 4.4],
+
+['Evgeni Malkin', 4.4],
+
+['Eric Staal', 4.3],
+
+['P.K. Subban', 4.3]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+</script>

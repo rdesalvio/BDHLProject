@@ -1,0 +1,847 @@
+﻿
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+
+    <div class="row">
+
+        <div class="col-md-12" style="margin-left: 33%"> <h1>BDHL 2013/14 Season</h1></div>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <h2>Final Regular Season Standings</h2>
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+
+                    <th>Team</th>
+
+                    <th>Owner</th>
+
+                    <th>Wins</th>
+
+                    <th>Losses</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>Bowling Green Falcons</td>
+
+                    <td>John Lanzi</td>
+
+                    <td>19</td>
+
+                    <td>4</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Maine Black Bears</td>
+
+                    <td>Hayden Tucker</td>
+
+                    <td>17</td>
+
+                    <td>6</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Minnesota Golden Gophers</td>
+
+                    <td>Bill DeSalvio</td>
+
+                    <td>13</td>
+
+                    <td>10</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Vermont Catamounts</td>
+
+                    <td>Ryan DeSalvio</td>
+
+                    <td>9</td>
+
+                    <td>14</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Michigan Wolverines</td>
+
+                    <td>Joey Zappa</td>
+
+                    <td>6</td>
+
+                    <td>17</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Michigan State Spartans</td>
+
+                    <td>Brad Lawson</td>
+
+                    <td>5</td>
+
+                    <td>18</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-md-6" id="NHLScoringLeaders" style="width: 500px; height: 400px; margin:0%;"></div>
+
+        <div class="col-md-6" id="BDHLScoringLeaders" style="width: 500px; height: 400px; margin-left:5%"></div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-md-6" id="NHLPPLeaders" style="width: 500px; height: 400px; margin:0%"></div>
+
+        <div class="col-md-6" id="NHLPMLeaders" style="width: 500px; height: 400px; margin-left:5%"></div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-md-12" id="BDHLAverageLeaders" style="width: 500px; height: 400px; margin-left:25%"></div>
+
+    </div>
+
+
+
+
+    <div class="container">
+
+        <h2>Season Records</h2>
+
+        <p>2013/14 Individual Season Records</p>
+
+        <div class="panel-group">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Largest Win</div>
+
+                <div class="panel-body">Maine Black Bears(W) vs. Vermont Catamounts: 139 points </div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Smallest Win</div>
+
+                <div class="panel-body">Michigan State Spartans(W) vs. Michigan Wolverines: 1.3 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Points in a Day by a Player in a Week</div>
+
+                <div class="panel-body">Tyler Seguin(Bowling Green): 45 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Points by a Team in a Day</div>
+
+                <div class="panel-body">Vermont Catamounts: 82.8 points</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Goals by a Team in a Week</div>
+
+                <div class="panel-body">Bowling Green Falcons: 30 goals</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Assists by a Team in a Week</div>
+
+                <div class="panel-body">Maine Black Bears: 45 assists</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Pickups by a Team in a Season</div>
+
+                <div class="panel-body">Maine Black Bears: 188 pickups</div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Most Trades by a Team in a Season</div>
+
+                <div class="panel-body">Maine Black Bears: 7 trades</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+
+<script>
+
+
+
+
+
+$(function () {
+
+Highcharts.chart('NHLScoringLeaders', {
+
+chart: {
+
+type: 'column'
+
+
+},
+
+title: {
+
+text: 'NHL Top 10 In Scoring 2013/14'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'Points in 2013/14: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Sidney Crosby', 104],
+
+['Ryan Getzlaf', 87],
+
+['Claude Giroux', 86],
+
+['Tyler Seguin', 84],
+
+['Corey Perry', 82],
+
+['Phil Kessel', 80],
+
+['Taylor Hall', 80],
+
+['Joe Pavelski', 79],
+
+['Alex Oveckin', 79],
+
+['Jamie Benn', 79]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+Highcharts.chart('BDHLScoringLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'BDHL Top 10 In Scoring 2013/14'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Fantasy Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'Fantasy Points in 2013/14: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Alex Ovechkin', 415.5],
+
+['Sidney Crosby', 381.4],
+
+['Ryan Getzlaf', 352.2],
+
+['Tyler Seguin', 345.0],
+
+['Joe Pavelski', 344.4],
+
+['Corey Perry', 343.1],
+
+['Jamie Benn', 342.1],
+
+['Claude Giroux', 341.2],
+
+['Patrick Sharp', 326.7],
+
+['Phil Kessel', 324.1]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+});
+
+Highcharts.chart('NHLPPLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'NHL Top 10 In PP Points 2013/14'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'PP Points in 2013/14: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Nicklas Backstrom', 44],
+
+['Alex Ovechkin', 39],
+
+['Sidney Crosby', 38],
+
+['Claude Giroux', 37],
+
+['Keith Yandle', 31],
+
+['Joe Pavelski', 31],
+
+['Erik Karlsonn', 31],
+
+['Evgeni Malkin', 30],
+
+['James Wisiniewski', 28],
+
+['Shea Weber', 26]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+Highcharts.chart('NHLPMLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'NHL Top 10 In +/- 2013/14'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: '+/- in 2013/14: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['David Krejci', 39],
+
+['Patrice Bergeron', 38],
+
+['Brad Marchand', 36],
+
+['Jarome Iginla', 34],
+
+['Anze Kopitar', 34],
+
+['Matt Nisakanen', 33],
+
+['Corey Perry', 32],
+
+['Ondrej Palat', 32],
+
+['Marc-Eduardo Vlasic', 31],
+
+['Johnny Boychuk', 31]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+Highcharts.chart('BDHLAverageLeaders', {
+
+chart: {
+
+type: 'column'
+
+},
+
+title: {
+
+text: 'BDHL Top 10 In Average 2013/14'
+
+},
+
+subtitle: {
+
+text: 'Source: <a href="http://www.hockey-reference.com/leagues/NHL_2016_leaders.html">Hockey Reference</a>'
+
+},
+
+xAxis: {
+
+type: 'category',
+
+labels: {
+
+rotation: -45,
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+},
+
+yAxis: {
+
+min: 0,
+
+title: {
+
+text: 'Fantasy Points'
+
+}
+
+},
+
+legend: {
+
+enabled: false
+
+},
+
+tooltip: {
+
+pointFormat: 'Fantasy Average in 2013/14: <b>{point.y}</b>'
+
+},
+
+series: [{
+
+name: 'Population',
+
+data: [
+
+['Alex Ovechkin', 5.3],
+
+['Steven Stamkos', 5.1],
+
+['Sidney Crosby', 4.8],
+
+['James Neal', 4.6],
+
+['Ryan Getzlaf', 4.6],
+
+['Evgeni Malkin', 4.5],
+
+['John Tavares', 4.3],
+
+['Tyler Seguin', 4.3],
+
+['Corey Perry', 4.2],
+
+['David Backes', 4.2]
+
+],
+
+dataLabels: {
+
+enabled: true,
+
+rotation: -90,
+
+color: '#FFFFFF',
+
+align: 'right',
+
+format: '{point.y}', // one decimal
+
+y: 10, // 10 pixels down from the top
+
+style: {
+
+fontSize: '13px',
+
+fontFamily: 'Verdana, sans-serif'
+
+}
+
+}
+
+}]
+
+});
+
+</script>

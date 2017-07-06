@@ -1,0 +1,58 @@
+﻿@using BDHLProject.Models;
+@model SearchModel
+
+@{
+    ViewBag.Title = "Statistics";
+    List<String> yearOptions = new List<string> { "2016/17", "2015/16", "2014/15", "2013/14", "2012/13" };
+    List<String> statOptions = new List<string> {"5on5", "5on4" };
+}
+
+<h2>Statistics</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Label("Season:")
+            @Html.DropDownListFor(model => model.DBYear, new SelectList(yearOptions), new { @class = "form-control", @id = "YearDropdown", data_url = Url.Action("StatisticsGridPartial", "Home") })
+        </div>
+        <div class="col-md-6">
+            @Html.Label("Type of Stats:")
+            @Html.DropDownListFor(model => model.StatisticsType, new SelectList(statOptions), new { @class = "form-control", @id = "StatDropdown", data_url = Url.Action("StatisticsGridPartial", "Home") })
+        </div>
+    </div>
+</div>
+
+<br />
+@*<div class="container">
+        @Html.Partial("_StatisticsGrid", Model)
+    </div>*@
+
+
+<div class="container">
+    <div id="Grid"></div>
+</div>
+
+<script>
+    $('#YearDropdown').change(function () {
+
+        var url = $(this).data('url');
+        var YearDropdown = $(this).val();
+        var TypeDropdown = $('#StatDropdown').val();
+        $('#Grid').load(url, { YearDropdown: YearDropdown, TypeDropdown: TypeDropdown })
+    });
+    $('#StatDropdown').change(function () {
+        var url = $(this).data('url');
+        var value = $(this).val();
+        var YearDropdown = $('#YearDropdown').val();
+        var TypeDropdown = $(this).val();
+        $('#Grid').load(url, { YearDropdown: YearDropdown, TypeDropdown: TypeDropdown })
+    });
+
+    $(document).ready(function () {
+        var url = $('#YearDropdown').data('url');
+        var YearDropdown = "2016/17";
+        var TypeDropdown = "5on5";
+        $('#Grid').load(url, { YearDropdown: YearDropdown, TypeDropdown: TypeDropdown })
+    });
+    
+</script>
