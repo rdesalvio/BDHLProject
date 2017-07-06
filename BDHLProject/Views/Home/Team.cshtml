@@ -1,0 +1,56 @@
+﻿@using BDHLProject.Models;
+
+@{
+    NHLPlayers bdhl = new NHLPlayers();
+    TeamInfo team = bdhl.TeamInfoes.ToList().Where(x => x.Id == (int)TempData["ID"]).First();
+    var players = bdhl.C201617TotalStats.ToList().Where(x => x.TeamId == (int)TempData["ID"]);
+    var grid = new WebGrid(source: players, canPage: true, rowsPerPage: 7);
+    //pager
+    grid.Pager(WebGridPagerModes.All);
+}
+<h2>@team.TeamName</h2>
+<!--web grid styles starts-->
+<style type="text/css">
+    /*styles for altering rows*/
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    /*.webgrid-alternating-row {
+            background-color: #EAF2D3;
+            padding: 3px 7px 2px;
+        }*/
+</style>
+<!--web grid styles Ends-->
+<!--web grid display element-->
+<div id="webgrid">
+    @grid.GetHtml(
+            //styles class for table
+            //here i used bootstrap table templates
+            tableStyle: "table table-responsive backcolor",
+            headerStyle: "wedgrid-header",
+            footerStyle: "webgrid-footer",
+            alternatingRowStyle: "webgrid-alternating-row",
+            rowStyle: "webgrid-row-style",
+            //binding table column to the grid
+            columns: grid.Columns(
+            grid.Column("FirstName", "First Name"),
+            grid.Column("LastName", "Last Name"),
+            grid.Column(columnName: "Goals", header: "Goals"),
+            grid.Column(columnName: "Assists", header: "Assists"),
+            grid.Column(columnName: "Points", header: "Points"),
+            grid.Column("PIM"),
+            grid.Column(columnName: "ContractMoney", format: @<text><div>$@item.ContractMoney Million</div></text>, header: "Salary"),
+            grid.Column(columnName: "ContractYears", header: "Years Remaining"),
+            grid.Column(columnName: "ContractYears", format: @<a href="@Url.Action("Trade", new { id = item.Id})">Submit Trade For</a>, header: " ")
+
+            )
+    )
+</div>
+<br />
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+</div>
+

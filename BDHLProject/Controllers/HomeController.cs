@@ -10,6 +10,7 @@ namespace BDHLProject.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -22,9 +23,12 @@ namespace BDHLProject.Controllers
             return View(model);
         }
 
-        public ActionResult Contact()
+        public ActionResult Cap()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Cap situation around the league";
+
+            NHLPlayers bdhl = new NHLPlayers();
+            var teams = bdhl.TeamInfoes.ToList();
 
             return View();
         }
@@ -56,6 +60,13 @@ namespace BDHLProject.Controllers
             model.PlayersSixteenSeventeen = _2016_17PlayersRepository.Get201617Players().OrderByDescending(x => x.Points).ToList();
             model.PPPlayersSixteenSeventeen = _2016_17PlayersRepository.Get201617PPPlayers().OrderByDescending(x => x.Points).ToList();
             return View("_StatisticsGrid", model);
+        }
+
+
+        public ActionResult Team(int id)
+        {
+            TempData["ID"] = id;
+            return View();
         }
     }
 }

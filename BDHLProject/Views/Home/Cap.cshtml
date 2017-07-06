@@ -1,0 +1,50 @@
+﻿@using BDHLProject.Models;
+
+
+@{
+    ViewBag.Title = "Cap Center";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@{
+    int SalaryCap = 100;
+    NHLPlayers bdhl = new NHLPlayers();
+    var teams = bdhl.TeamInfoes.ToList().OrderBy(x => x.LeagueStanding);
+    var grid = new WebGrid(source: teams, canPage: true, rowsPerPage: 7);
+    //pager
+    grid.Pager(WebGridPagerModes.All);
+}
+<h2>Current Cap Situation</h2>
+<!--web grid styles starts-->
+<style type="text/css">
+    /*styles for altering rows*/
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    /*.webgrid-alternating-row {
+        background-color: #EAF2D3;
+        padding: 3px 7px 2px;
+    }*/
+</style>
+<!--web grid styles Ends-->
+<!--web grid display element-->
+<div id="webgrid">
+    @grid.GetHtml(
+            //styles class for table
+            //here i used bootstrap table templates
+            tableStyle: "table table-responsive backcolor",
+            headerStyle: "wedgrid-header",
+            footerStyle: "webgrid-footer",
+            alternatingRowStyle: "webgrid-alternating-row",
+            rowStyle: "webgrid-row-style",
+            //binding table column to the grid
+            columns: grid.Columns(
+            grid.Column(columnName: "TeamName", format: @<a href="@Url.Action("Team", new { id = item.Id})">@item.TeamName</a>, header: "Team Name"),
+            grid.Column(columnName: "Salary", format: @<text><div>$@item.Salary Million</div></text>, header: "Current Salary"),
+            grid.Column(columnName: "Salary", format: @<text><div>@((SalaryCap - item.Salary) > 0 ? "$" + (100 - item.Salary) + " Million" : "No Cap Space")</div></text>, header: "Available Space"),
+            grid.Column(columnName: "LeagueStanding", header: "Standing")
+            )
+    )
+</div>

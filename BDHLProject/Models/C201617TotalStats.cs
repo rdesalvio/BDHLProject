@@ -636,5 +636,11 @@ namespace BDHLProject.Models
 
         [Key]
         public int id { get; set; }
+
+        public int? TeamId { get; set; }
+
+        public int? ContractMoney { get; set; }
+
+        public int? ContractYears { get; set; }
     }
 }

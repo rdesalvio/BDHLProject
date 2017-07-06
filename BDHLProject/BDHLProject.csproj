@@ -163,6 +163,7 @@
     <Compile Include="Models\C201617TotalStats.cs" />
     <Compile Include="Models\NHLPlayers.cs" />
     <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\TeamInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\2016-17PlayersRepository.cs" />
   </ItemGroup>
@@ -202,13 +203,14 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Statistics.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Cap.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Facts201213.cshtml" />
     <Content Include="Views\Home\Facts201314.cshtml" />
     <Content Include="Views\Home\Facts201415.cshtml" />
     <Content Include="Views\Home\Facts201516.cshtml" />
     <Content Include="Views\Home\_StatisticsGrid.cshtml" />
+    <Content Include="Views\Home\Team.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

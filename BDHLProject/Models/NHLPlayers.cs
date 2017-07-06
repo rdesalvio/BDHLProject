@@ -14,6 +14,7 @@ namespace BDHLProject.Models
 
         public virtual DbSet<C201617TotalStats> C201617TotalStats { get; set; }
         public virtual DbSet<C201617PPStats> C201617PPStats { get; set; }
+        public virtual DbSet<TeamInfo> TeamInfoes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -24,6 +25,14 @@ namespace BDHLProject.Models
             modelBuilder.Entity<C201617TotalStats>()
                 .Property(e => e.F167)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<TeamInfo>()
+    .Property(e => e.TeamName)
+    .IsUnicode(false);
+
+            modelBuilder.Entity<TeamInfo>()
+                .Property(e => e.TeamAbbreviation)
+                .IsUnicode(false);
         }
     }
 }
